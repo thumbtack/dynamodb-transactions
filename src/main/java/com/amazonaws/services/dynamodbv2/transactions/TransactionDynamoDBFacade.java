@@ -39,6 +39,8 @@ import com.amazonaws.services.dynamodbv2.model.DeleteItemRequest;
 import com.amazonaws.services.dynamodbv2.model.DeleteItemResult;
 import com.amazonaws.services.dynamodbv2.model.DeleteTableRequest;
 import com.amazonaws.services.dynamodbv2.model.DeleteTableResult;
+import com.amazonaws.services.dynamodbv2.model.DescribeLimitsRequest;
+import com.amazonaws.services.dynamodbv2.model.DescribeLimitsResult;
 import com.amazonaws.services.dynamodbv2.model.DescribeTableRequest;
 import com.amazonaws.services.dynamodbv2.model.DescribeTableResult;
 import com.amazonaws.services.dynamodbv2.model.ExpectedAttributeValue;
@@ -60,6 +62,18 @@ import com.amazonaws.services.dynamodbv2.model.UpdateItemResult;
 import com.amazonaws.services.dynamodbv2.model.UpdateTableRequest;
 import com.amazonaws.services.dynamodbv2.model.UpdateTableResult;
 import com.amazonaws.services.dynamodbv2.model.WriteRequest;
+import com.amazonaws.services.dynamodbv2.waiters.AmazonDynamoDBWaiters;
+
+import com.amazonaws.services.dynamodbv2.model.DescribeTimeToLiveRequest;
+import com.amazonaws.services.dynamodbv2.model.DescribeTimeToLiveResult;
+import com.amazonaws.services.dynamodbv2.model.ListTagsOfResourceRequest;
+import com.amazonaws.services.dynamodbv2.model.ListTagsOfResourceResult;
+import com.amazonaws.services.dynamodbv2.model.TagResourceRequest;
+import com.amazonaws.services.dynamodbv2.model.TagResourceResult;
+import com.amazonaws.services.dynamodbv2.model.UntagResourceRequest;
+import com.amazonaws.services.dynamodbv2.model.UntagResourceResult;
+import com.amazonaws.services.dynamodbv2.model.UpdateTimeToLiveRequest;
+import com.amazonaws.services.dynamodbv2.model.UpdateTimeToLiveResult;
 
 /**
  * Facade for {@link AmazonDynamoDB} that forwards requests to a
@@ -440,6 +454,41 @@ public class TransactionDynamoDBFacade implements AmazonDynamoDB {
     public BatchGetItemResult batchGetItem(
             Map<String, KeysAndAttributes> requestItems)
             throws AmazonServiceException, AmazonClientException {
+        throw new UnsupportedOperationException("Use the underlying client instance instead");
+    }
+
+	@Override
+	public DescribeLimitsResult describeLimits(DescribeLimitsRequest request) {
+		throw new UnsupportedOperationException("Use the underlying client instance instead");
+	}
+
+	@Override
+	public AmazonDynamoDBWaiters waiters() {
+		throw new UnsupportedOperationException("Use the underlying client instance instead");
+	}
+
+    @Override
+    public DescribeTimeToLiveResult describeTimeToLive(DescribeTimeToLiveRequest describeTimeToLiveRequest) {
+        throw new UnsupportedOperationException("Use the underlying client instance instead");
+    }
+
+    @Override
+    public ListTagsOfResourceResult listTagsOfResource(ListTagsOfResourceRequest listTagsOfResourceRequest) {
+        throw new UnsupportedOperationException("Use the underlying client instance instead");
+    }
+
+    @Override
+    public TagResourceResult tagResource(TagResourceRequest tagResourceRequest) {
+        throw new UnsupportedOperationException("Use the underlying client instance instead");
+    }
+
+    @Override
+    public UntagResourceResult untagResource(UntagResourceRequest untagResourceRequest) {
+        throw new UnsupportedOperationException("Use the underlying client instance instead");
+    }
+
+    @Override
+    public UpdateTimeToLiveResult updateTimeToLive(UpdateTimeToLiveRequest updateTimeToLiveRequest) {
         throw new UnsupportedOperationException("Use the underlying client instance instead");
     }
 

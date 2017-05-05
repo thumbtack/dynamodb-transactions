@@ -37,6 +37,8 @@ import com.amazonaws.services.dynamodbv2.model.DeleteItemRequest;
 import com.amazonaws.services.dynamodbv2.model.DeleteItemResult;
 import com.amazonaws.services.dynamodbv2.model.DeleteTableRequest;
 import com.amazonaws.services.dynamodbv2.model.DeleteTableResult;
+import com.amazonaws.services.dynamodbv2.model.DescribeLimitsRequest;
+import com.amazonaws.services.dynamodbv2.model.DescribeLimitsResult;
 import com.amazonaws.services.dynamodbv2.model.DescribeTableRequest;
 import com.amazonaws.services.dynamodbv2.model.DescribeTableResult;
 import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
@@ -57,6 +59,18 @@ import com.amazonaws.services.dynamodbv2.model.UpdateItemResult;
 import com.amazonaws.services.dynamodbv2.model.UpdateTableRequest;
 import com.amazonaws.services.dynamodbv2.model.UpdateTableResult;
 import com.amazonaws.services.dynamodbv2.model.WriteRequest;
+import com.amazonaws.services.dynamodbv2.waiters.AmazonDynamoDBWaiters;
+
+import com.amazonaws.services.dynamodbv2.model.DescribeTimeToLiveRequest;
+import com.amazonaws.services.dynamodbv2.model.DescribeTimeToLiveResult;
+import com.amazonaws.services.dynamodbv2.model.ListTagsOfResourceRequest;
+import com.amazonaws.services.dynamodbv2.model.ListTagsOfResourceResult;
+import com.amazonaws.services.dynamodbv2.model.TagResourceRequest;
+import com.amazonaws.services.dynamodbv2.model.TagResourceResult;
+import com.amazonaws.services.dynamodbv2.model.UntagResourceRequest;
+import com.amazonaws.services.dynamodbv2.model.UntagResourceResult;
+import com.amazonaws.services.dynamodbv2.model.UpdateTimeToLiveRequest;
+import com.amazonaws.services.dynamodbv2.model.UpdateTimeToLiveResult;
 
 /**
  * Necessary to work around a limitation of the mapper. The mapper always gets
@@ -278,6 +292,41 @@ public class ThreadLocalDynamoDBFacade implements AmazonDynamoDB {
     @Override
     public BatchGetItemResult batchGetItem(Map<String, KeysAndAttributes> requestItems) throws AmazonServiceException, AmazonClientException {
         return getBackend().batchGetItem(requestItems);
+    }
+
+	@Override
+	public DescribeLimitsResult describeLimits(DescribeLimitsRequest request) {
+		return getBackend().describeLimits(request);
+	}
+
+	@Override
+	public AmazonDynamoDBWaiters waiters() {
+		return getBackend().waiters();
+	}
+
+    @Override
+    public DescribeTimeToLiveResult describeTimeToLive(DescribeTimeToLiveRequest describeTimeToLiveRequest) {
+        return getBackend().describeTimeToLive(describeTimeToLiveRequest);
+    }
+
+    @Override
+    public ListTagsOfResourceResult listTagsOfResource(ListTagsOfResourceRequest listTagsOfResourceRequest) {
+        return getBackend().listTagsOfResource(listTagsOfResourceRequest);
+    }
+
+    @Override
+    public TagResourceResult tagResource(TagResourceRequest tagResourceRequest) {
+        return getBackend().tagResource(tagResourceRequest);
+    }
+
+    @Override
+    public UntagResourceResult untagResource(UntagResourceRequest untagResourceRequest) {
+        return getBackend().untagResource(untagResourceRequest);
+    }
+
+	@Override
+    public UpdateTimeToLiveResult updateTimeToLive(UpdateTimeToLiveRequest updateTimeToLiveRequest) {
+	    return getBackend().updateTimeToLive(updateTimeToLiveRequest);
     }
 
 }
