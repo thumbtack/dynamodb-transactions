@@ -10,7 +10,8 @@ lazy val dynamoDbTransactions =
     scalaVersion := "2.11.8",
     libraryDependencies ++= Seq(
       "com.amazonaws" % "aws-java-sdk" % "1.11.125",
-      "junit" % "junit" % "4.11" % Test
+      "junit" % "junit" % "4.11" % Test,
+      "org.mockito" % "mockito-core" % "1.9.5" % Test
     ),
     publishArtifact in (Compile, packageDoc) := false,
     publishArtifact in packageDoc := false,
