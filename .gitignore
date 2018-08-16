@@ -1,0 +1,6 @@
+.DS_Store
+._*
+.idea
+*.iml
+sbt_repository_credentials.properties
+target

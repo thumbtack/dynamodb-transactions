@@ -1,0 +1,3 @@
+-Dsbt.override.build.repos=true
+-Dsbt.repository.config=sbt_repository_config.txt
+-Dsbt.boot.credentials=sbt_repository_credentials.properties
