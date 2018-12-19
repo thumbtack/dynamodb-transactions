@@ -1,5 +1,0 @@
-[repositories]
-local
-thumbtack-maven-proxies: https://thumbtack.jfrog.io/thumbtack/maven-proxies/
-thumbtack-ivy-proxies: https://thumbtack.jfrog.io/thumbtack/ivy-proxies/, [organization]/[module]/[revision]/[type]s/[artifact](-[classifier]).[ext], bootOnly
-thumbtack-ivy-proxies-sbt: https://thumbtack.jfrog.io/thumbtack/ivy-proxies/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext], bootOnly

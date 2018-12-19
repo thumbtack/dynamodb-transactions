@@ -16,10 +16,9 @@ lazy val dynamoDbTransactions =
       publishArtifact in (Compile, packageDoc) := false,
       publishArtifact in packageDoc := false,
       sources in (Compile, doc) := Seq.empty,
-      credentials += Credentials(file("sbt_repository_credentials.properties")),
       coursierUseSbtCredentials := true,
       updateOptions := updateOptions.value.withCachedResolution(true),
-      publishTo := Some("Artifactory Realm" at "https://thumbtack.jfrog.io/thumbtack/maven-proxies"),
+      publishTo := Some("Artifactory Realm" at "https://thumbtack.jfrog.io/thumbtack/maven-virtual"),
       // Build this artifact as a pure Java JAR.
       // https://xerial.org/blog/2014/03/24/sbt/
       autoScalaLibrary := false,
