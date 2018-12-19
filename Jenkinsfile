@@ -15,12 +15,6 @@ pipeline {
     }
 
     stages {
-        stage('Get Artifactory credentials') {
-            steps {
-                // Link to credentials provisioned by Puppet.
-                sh 'ln -fs /etc/jenkins/sbt_repository_credentials.properties ./'
-            }
-        }
         stage('Build') {
             steps {
                 // Actually compile the project.
