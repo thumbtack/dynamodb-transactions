@@ -34,10 +34,6 @@ pipeline {
             }
         }
         stage('Publish to Artifactory') {
-            when {
-                beforeAgent true
-                branch 'master'
-            }
             steps {
                 // Publish to the repo defined in build.sbt.
                 sh 'sbt -no-colors publish'
