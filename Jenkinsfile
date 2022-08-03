@@ -3,8 +3,7 @@
 // Automatically build any new commits on master, and deploy them to the development environment.
 // Successful builds will be automatically deployed to staging and production.
 pipeline {
-    // Run on the same Jenkins build slave as other Scala projects.
-    agent { label 'slaveOK' }
+    agent { label 'shared' }
 
     // These have to be set up globally in the Jenkins UI with these exact names.
     tools {
