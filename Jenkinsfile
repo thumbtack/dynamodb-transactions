@@ -5,14 +5,10 @@
 pipeline {
     agent { label 'shared' }
 
-    // These have to be set up globally in the Jenkins UI with these exact names.
-    tools {
-        // Must be JDK 8.
-        jdk 'JDK-1.8'
-        // Latest release version of sbt as of now.
-        'org.jvnet.hudson.plugins.SbtPluginBuilder$SbtInstallation' 'sbt-1.2.1'
+    environment {
+    	JAVA_HOME = '/usr/lib/jvm/temurin-8-jdk-amd64'
+	PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
-
     stages {
         stage('Build') {
             steps {
